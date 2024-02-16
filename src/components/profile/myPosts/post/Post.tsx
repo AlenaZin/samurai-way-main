@@ -1,12 +1,18 @@
+import { PostDataType } from '../../../../redux/state';
 import s from './Post.module.css';
 
-export const Post = () => {
+type PostType = {post: PostDataType};
+
+export const Post = ({post}: PostType) => {
   return (
-    <div className={s.item}>
-      <img src='https://cdni-vm.servicecdn.ru/2022.09/original/1200_632d91bb82682c39bb7f4a16.jpg'/>
-      post 1
+    <div className={s.itemPost}>
+      <div className={s.item}>
+        <img src="https://img.freepik.com/free-photo/luxury-plain-green-gradient-abstract-studio-background-empty-room-with-space-for-your-text-and-picture_1258-54283.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704931200&semt=ais" />
+        <span className={s.postName}>{post.title}</span>
+      </div>
+
       <div>
-        <span>like</span>
+        <span>like: {post.likeCount}</span>
       </div>
     </div>
   );

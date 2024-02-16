@@ -2,6 +2,7 @@
   margin: auto;
   display: grid;
   width: 1200px; 
+  height: 100vh;
 
   grid-template-areas: 
   "h h"
@@ -11,15 +12,11 @@
   grid-gap: 10px;
 }
 
-
-
-.nav {
-  grid-area: n;
-  background-color:lightpink;
-}
-
-.content {
+.app-wrapper-content {
   grid-area: c;
   background-color: beige;
 }
+
+
+
 
