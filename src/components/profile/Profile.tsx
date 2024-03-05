@@ -1,17 +1,21 @@
 
-import { PostDataType } from '../../redux/state';
+import { ActionsType, PostDataType } from '../../redux/store';
 import s from './Profile.module.css';
-import { MyPosts } from './myPosts/MyPosts';
+import { MyPostsContainer } from './myPosts/MyPostsContainer';
 import { ProfileInfo } from './profileInfo/ProfileInfo';
 
-type ProfileProps = { posts: PostDataType[] };
+// type ProfileProps = { 
+//   posts: PostDataType[]
+//   text: string
+//   dispatch: (action: ActionsType)=>void
+// };
 
-export const Profile = ({ posts }: ProfileProps) => {
+export const Profile = () => {
 
   return (
     <div className={s.content}>
       <ProfileInfo />
-      <MyPosts posts={posts}/>
+      <MyPostsContainer/>
     </div>
   );
 }
