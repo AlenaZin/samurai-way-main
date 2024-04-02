@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../redux/reduxStore";
-import { followAC, setUsersAC, unfollowAC, userDataType } from "../../redux/usersReducer";
-import { Users } from "./Users";
+import { followAC, setCurrentPageAC, setUsersAC, setTotalUsersCountAC, unfollowAC, UserDataType, toggleIsFetcingAC } from "../../redux/usersReducer";
+import { UsersAPIComponent } from "./UsersAPIComponent";
 
 export const UsersContainer = () => {
 
@@ -13,11 +13,32 @@ export const UsersContainer = () => {
   const unfollowCallback = (userId: number) => {
     dispatch(unfollowAC(userId))
   }
-  const setUsers = (users: userDataType) => {
+  const setUsers = (users: UserDataType[]) => {
     dispatch(setUsersAC(users))
+  }
+  const setCurrentPageCallback = (currentPage: number) => {
+    dispatch(setCurrentPageAC(currentPage))
+  }
+  const setTotalUsersCount = (count: number) => {
+    dispatch(setTotalUsersCountAC(count))
+  }
+  const toggleIsFetcing = (isFetching: boolean) => {
+    dispatch(toggleIsFetcingAC(isFetching))
   }
 
   return(
-    <Users followCallback={followCallback} unfollowCallback={unfollowCallback} setUsers={setUsers} users={usersPage.userData}/>
+    <UsersAPIComponent 
+      followCallback={followCallback}
+      unfollowCallback={unfollowCallback}
+      setCurrentPageCallback={setCurrentPageCallback} 
+      setUsers={setUsers}
+      users={usersPage.userData}
+      pageSize={usersPage.pageSize}
+      totalUsersCount={usersPage.totalUsersCount}
+      setTotalUsersCount={setTotalUsersCount}
+      currentPage={usersPage.currentPage}
+      isFetching={usersPage.isFetching}
+      toggleIsFetcing={toggleIsFetcing}
+    />
   )
 } 

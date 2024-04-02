@@ -27,3 +27,21 @@
   justify-content: space-between;
   padding: 0 20px;
 }
+
+.pageNumber {
+  cursor: pointer;
+  font-size: 22px;
+  display: inline-block;
+  margin: 6px;
+  font-weight: bold;
+
+}
+
+.activePage {
+  color: rgb(242, 59, 18);
+  cursor: pointer;
+  font-size: 22px;
+  display: inline-block;
+  margin: 6px;
+  font-weight: bold;
+}
